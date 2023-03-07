@@ -1,5 +1,5 @@
 {
-  "name": "expect-to-match-markdown",
+  "name": "jest-markdown",
   "version": "1.0.0-alpha.0",
   "description": "Jest expect matches to test if an element matches markdown",
   "type": "module",

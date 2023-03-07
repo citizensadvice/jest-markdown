@@ -1,4 +1,4 @@
-# `@citizensadvice/expect-to-match-markdown`
+# `@citizensadvice/jest-markdown`
 
 Jest expect matches to test if a DOM `Element` matches [markdown](https://www.markdownguide.org/basic-syntax/).
 
