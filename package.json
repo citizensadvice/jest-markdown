@@ -1,5 +1,5 @@
 {
-  "name": "jest-markdown",
+  "name": "@citizensadvice/jest-markdown",
   "version": "1.0.0-alpha.0",
   "description": "Jest expect matches to test if an element matches markdown",
   "type": "module",
@@ -15,7 +15,6 @@
     "@swc/jest": "^0.2.24",
     "@testing-library/dom": "^9.0.0",
     "@testing-library/jest-dom": "^5.16.5",
-    "@types/jest": "^29.4.0",
     "eslint": "^8.35.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-plugin-import": "^2.27.5",
@@ -26,14 +25,14 @@
   "dependencies": {
     "hast-util-from-dom": "^4.2.0",
     "hast-util-to-mdast": "^9.0.0",
+    "jest-diff": ">=27.0.0",
     "mdast-util-gfm": "^2.0.2",
     "mdast-util-gfm-strikethrough": "^1.0.3",
     "mdast-util-gfm-table": "^1.0.7",
     "mdast-util-to-markdown": "^1.5.0"
   },
   "peerDependencies": {
-    "jest": ">=27.0.0",
-    "jest-diff": ">=27.0.0"
+    "jest": ">=22.0.0"
   },
   "peerDependenciesMeta": {
     "jest": {
