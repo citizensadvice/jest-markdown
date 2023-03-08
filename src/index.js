@@ -4,6 +4,7 @@ import { toMarkdown } from 'mdast-util-to-markdown';
 import { gfmTableToMarkdown } from 'mdast-util-gfm-table';
 import { gfmStrikethroughToMarkdown } from 'mdast-util-gfm-strikethrough';
 import { diff } from 'jest-diff';
+import chalk from 'chalk';
 
 import { buildDom } from './build_dom.js';
 import { undent } from './undent.js';
@@ -123,14 +124,14 @@ expect.extend({
       ? () => (
         this.utils.matcherHint('toContainMarkdown', undefined, undefined, hintOptions)
         + '\n\n'
-        + `Expected markdown: ${this.utils.printExpected(expected)}\n`
-        + `Not within: ${this.utils.printReceived(markdown)}`
+        + `Expected markdown:\n${chalk.green(expected)}\n`
+        + `Not within:\n${chalk.red(markdown)}`
       )
       : () => (
         this.utils.matcherHint('toContainMarkdown', undefined, undefined, hintOptions)
         + '\n\n'
-        + `Expected markdown: ${this.utils.printExpected(expected)}\n`
-        + `Within: ${this.utils.printReceived(markdown)}`
+        + `Expected markdown:\n${chalk.green(expected)}\n`
+        + `Within:\n${chalk.red(markdown)}`
       );
 
     return { message, pass };
