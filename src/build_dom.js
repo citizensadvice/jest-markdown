@@ -31,21 +31,38 @@ function* walk(walker) {
       continue;
     }
 
+    // Keep captions - hast-util-to-mdast is currently discarding them
+    if (node.matches('table') && node.caption) {
+      yield* walkNode(node.caption); // eslint-disable-line no-use-before-define
+    }
+    if (node.matches('caption') && node !== walker.root) {
+      continue;
+    }
+
     const cloned = mapElementToRole(node);
     yield cloned;
 
     if (!cloned.matches('hr,img') && walker.firstChild()) {
-      cloned.append(...walk(walker));
+      if (!(walker.currentNode.nodeType === Node.ELEMENT_NODE && walker.currentNode.matches('caption'))) {
+        cloned.append(...walk(walker));
+      }
       walker.parentNode();
     }
   } while (walker.nextSibling());
 }
 
+function* walkNode(element) {
+  const walker = document.createTreeWalker(element, types, nodeFilter);
+  if (walker.currentNode) {
+    yield* walk(walker);
+  }
+}
+
 export function buildDom(element) {
   const fragment = element.ownerDocument.createDocumentFragment();
   const walker = document.createTreeWalker(element, types, nodeFilter);
-  if (walker.nextNode()) {
-    fragment.append(...walk(walker));
+  if (walker.currentNode) {
+    fragment.append(...walkNode(element));
   }
   return fragment;
 }

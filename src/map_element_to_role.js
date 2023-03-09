@@ -58,6 +58,10 @@ export function mapElementToRole(element) {
     }
   }
 
+  if (element.matches('caption')) {
+    return replaceElement(element, 'p');
+  }
+
   if (!roles[role] || roles[role].includes(element.tagName.toLowerCase())) {
     return element.cloneNode(false);
   }

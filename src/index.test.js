@@ -123,6 +123,49 @@ describe('toMatchMarkdown', () => {
     `);
   });
 
+  it('directly matches an element', () => {
+    document.body.innerHTML = `
+      <table>
+        <tr>
+          <th>One
+          <th>Two
+        </tr>
+        <tr>
+          <td>Three
+          <td>Four
+        </tr>
+      </table>
+    `;
+    expect(document.querySelector('table')).toMatchMarkdown(`
+      | One   | Two  |
+      | ----- | ---- |
+      | Three | Four |
+    `);
+  });
+
+  it('keeps a caption', () => {
+    document.body.innerHTML = `
+      <table>
+        <caption>Table <b>caption</b></caption>
+        <tr>
+          <th>One
+          <th>Two
+        </tr>
+        <tr>
+          <td>Three
+          <td>Four
+        </tr>
+      </table>
+    `;
+    expect(document.querySelector('table')).toMatchMarkdown(`
+      Table **caption**
+
+      | One   | Two  |
+      | ----- | ---- |
+      | Three | Four |
+    `);
+  });
+
   it('filters hidden nodes', () => {
     document.body.innerHTML = `
       <h1>Heading 1</h1>
