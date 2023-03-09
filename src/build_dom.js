@@ -43,9 +43,7 @@ function* walk(walker) {
     yield cloned;
 
     if (!cloned.matches('hr,img') && walker.firstChild()) {
-      if (!(walker.currentNode.nodeType === Node.ELEMENT_NODE && walker.currentNode.matches('caption'))) {
-        cloned.append(...walk(walker));
-      }
+      cloned.append(...walk(walker));
       walker.parentNode();
     }
   } while (walker.nextSibling());

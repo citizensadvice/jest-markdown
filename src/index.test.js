@@ -147,14 +147,18 @@ describe('toMatchMarkdown', () => {
     document.body.innerHTML = `
       <table>
         <caption>Table <b>caption</b></caption>
-        <tr>
-          <th>One
-          <th>Two
-        </tr>
-        <tr>
-          <td>Three
-          <td>Four
-        </tr>
+        <thead>
+          <tr>
+            <th>One
+            <th>Two
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Three
+            <td>Four
+          </tr>
+        </tbody>
       </table>
     `;
     expect(document.querySelector('table')).toMatchMarkdown(`
