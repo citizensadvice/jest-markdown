@@ -1,6 +1,6 @@
 {
   "name": "@citizensadvice/jest-markdown",
-  "version": "1.0.0-alpha.0",
+  "version": "1.0.0",
   "description": "Jest expect matches to test if an element matches markdown",
   "type": "module",
   "main": "./src/index.js",

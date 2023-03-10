@@ -1,4 +1,6 @@
-# `@citizensadvice/jest-markdown`
+# @citizensadvice/jest-markdown
+
+[![npm version](https://badge.fury.io/js/@citizensadvice%2Fjest-markdown.svg)](https://badge.fury.io/js/@citizensadvice%2Fjest-markdown)
 
 Jest expect matches to test if a DOM `Element` matches [markdown](https://www.markdownguide.org/basic-syntax/).
 
@@ -63,11 +65,11 @@ These options will be passed to the underlying libraries when converting to mark
 
 ## Jest and es6 modules
 
-The dependencies used by this library are es6 modules.  Jest, by default, currently chokes on es6 modules.
+The dependencies used by this library are es6 modules.  Jest, by default, cannot use packages written using es6 modules.
 
 See [the jest documentation](https://jestjs.io/docs/ecmascript-modules) for options and guidance.
 
-If you can't disable transformation, this library recommends using (`@swc/jest`)[https://swc.rs/docs/usage/jest],
+If you can't disable transformations, this library recommends using (`@swc/jest`)[https://swc.rs/docs/usage/jest],
 and overriding `transformIgnorePatterns` to include `node_modules`.
 
 ```js
