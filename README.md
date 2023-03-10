@@ -1,5 +1,7 @@
 # @citizensadvice/jest-markdown
 
+[![npm version](https://badge.fury.io/js/@citizensadvice%2Fjest-markdown.svg)](https://badge.fury.io/js/@citizensadvice%2Fjest-markdown)
+
 Jest expect matches to test if a DOM `Element` matches [markdown](https://www.markdownguide.org/basic-syntax/).
 
 Markdown does a good job of representing the semantic structure of html as
